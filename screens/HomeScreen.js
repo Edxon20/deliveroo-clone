@@ -72,7 +72,7 @@ const HomeScreen = () => {
         <Categories />
         <FeatureRow
           id = "123"
-          title="Feature"
+          title="Title 1 "
           description="Paid placements from our partners"
         />
         {/* Tasty Discounts */}
