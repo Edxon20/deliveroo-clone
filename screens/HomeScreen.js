@@ -91,14 +91,17 @@ const HomeScreen = () => {
 
         {/* Components */}
         {/* Features Rows*/}
-
-
         <Categories />
-        <FeatureRow
-          id = "123"
-          title="Title 1 "
-          description="Paid placements from our partners"
+        {featuredCategories?.map( category => {
+          <FeatureRow
+          key = { category._id}
+          id = { category._id}
+          title={ category.name}
+          description={ category.short_description}
         />
+        })}
+        
+        
         {/* Tasty Discounts */}
         <FeatureRow
           id = "1234"

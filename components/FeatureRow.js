@@ -1,10 +1,20 @@
 import { View, Text, ScrollView } from 'react-native'
-import React from 'react'
+import {React,useEffect} from 'react'
 import { ArrowRightIcon } from 'react-native-heroicons/outline'
 import RestaurantCard from "./RestaurantCard"
+import sanityClient from '../sanity'
 
 
 const FeatureRow = ({ id, title, description }) => {
+
+    useEffect(() => {
+
+        sanityClient.fetch(`
+            
+        `)
+
+    },[])
+
     return (
         <View>
             <View className="mt-4 flex-row items-center justify-between px-4">
@@ -40,34 +50,7 @@ const FeatureRow = ({ id, title, description }) => {
                     lat={0}
                 />
 
-                <RestaurantCard
-
-                    id={123}
-                    imgUrl="https://links.papareact.com/gn7"
-                    title="Yo! Sushi"
-                    rating={4.5}
-                    genre="Japanese"
-                    address="123 Main St"
-                    short_description="This is a short description"
-                    dishes={[]}
-                    long={20}
-                    lat={0}
-                />
-
-                <RestaurantCard
-
-                    id={123}
-                    imgUrl="https://links.papareact.com/gn7"
-                    title="Yo! Sushi"
-                    rating={4.5}
-                    genre="Japanese"
-                    address="123 Main St"
-                    short_description="This is a short description"
-                    dishes={[]}
-                    long={20}
-                    lat={0}
-                />
-
+                
 
 
 
