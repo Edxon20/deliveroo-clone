@@ -54,12 +54,12 @@ export default defineType({
     validation: (Rule) => Rule.required(),
     to:[{type: "category"}],
    },
-  //  {
-  //   name: "dishes",
-  //   type:"array",
-  //   title: "Dishes",
-  //   of: [{type: "reference", to: [{type: "dish"}]}],
-  //  },
+   {
+    name: "dishes",
+    type:"array",
+    title: "Dishes",
+    of: [{type: "reference", to: [{type: "dish"}]}],
+   },
   ],
 
  

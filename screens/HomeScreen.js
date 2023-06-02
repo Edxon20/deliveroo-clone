@@ -1,5 +1,5 @@
 import { View, Text, Image, TextInput, ScrollView } from 'react-native'
-import React, { useLayoutEffect } from 'react'
+import React, { useLayoutEffect,useState, useEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import {
@@ -12,10 +12,15 @@ import {
 import Categories from "../components/Categories";
 import FeatureRow from "../components/FeatureRow";
 
+//Dont foul import sanityClient
+import sanityClient from "../sanity"
+//This part is necessary because in other case expo shows a warning
+import 'react-native-url-polyfill/auto';
 
 const HomeScreen = () => {
 
   const navigation = useNavigation();
+  const [featuredCategories, setFeaturedCategories] = useState([])
 
   useLayoutEffect(() => {
 
@@ -23,6 +28,19 @@ const HomeScreen = () => {
       headerShown: false,
     })
   }, [])
+
+  useEffect(() => {
+
+    sanityClient
+    .fetch(
+      `*[_type == "featured"]`
+    ).
+    then((data) => {
+      setFeaturedCategories(data);
+    })
+  }, []);
+
+  
 
   return (
     <SafeAreaView className="bg-white pt-5">
