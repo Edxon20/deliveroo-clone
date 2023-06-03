@@ -29,8 +29,7 @@ const HomeScreen = () => {
     })
   }, [])
 
-  useEffect(() => {
-
+  useEffect(() => {    
     sanityClient
     .fetch(
       `*[_type == "featured"]{
@@ -45,7 +44,9 @@ const HomeScreen = () => {
     then((data) => {
       setFeaturedCategories(data);
     })
-  }, []);
+    
+  }
+  , []);
 
 
   return (
@@ -104,17 +105,17 @@ const HomeScreen = () => {
         
         {/* Tasty Discounts */}
         <FeatureRow
-          id = "1234"
+          id = "4da06f29-44db-441f-bc82-f051404309e5"
           title="Feature"
           description="Everyone's been enjoying these joicy discounts!"
         />
 
         {/* Offer near you */}
-        <FeatureRow
+        {/* <FeatureRow
           id = "1235"
           title="Feature"
           description="Why not support your local restaurant tonight!"
-        />
+        /> */}
 
 
       </ScrollView>
