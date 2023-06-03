@@ -30,6 +30,9 @@ const FeatureRow = ({ id, title, description }) => {
         })
     },[])
    
+
+   
+
     return (
         <View>
             <View className="mt-4 flex-row items-center justify-between px-4">
@@ -51,24 +54,22 @@ const FeatureRow = ({ id, title, description }) => {
             >
 
                 {/* RestaurantCards */}
-                <RestaurantCard
 
-                    id={123}
-                    imgUrl="https://links.papareact.com/gn7"
-                    title="Yo! Sushi"
-                    rating={4.5}
-                    genre="Japanese"
-                    address="123 Main St"
-                    short_description="This is a short description"
-                    dishes={[]}
-                    long={20}
-                    lat={0}
-                />
+                {restaurants?.map(restaurant => {
+                    <RestaurantCard
+                        id={123}
+                        imgUrl="https://links.papareact.com/gn7"
+                        title="Yo! Sushi"
+                        rating={4.5}
+                        genre="Japanese"
+                        address="123 Main St"
+                        short_description="This is a short description"
+                        dishes={[]}
+                        long={20}
+                        lat={0}
+                    />
 
-                
-
-
-
+                })}           
             </ScrollView>
 
         </View>
