@@ -47,6 +47,7 @@ const FeatureRow = ({ id, title, description }) => {
                 {/* RestaurantCards */}
                 {restaurants?.map(restaurant => (
                     <>
+                    {/* {console.log(restaurant._id)} */}
                     <RestaurantCard
                         key={restaurant._id}
                         id={restaurant._id}

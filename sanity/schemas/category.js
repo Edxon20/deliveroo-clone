@@ -18,10 +18,5 @@ export default defineType({
     title: "Image of Category",
     validation: (Rule) => Rule.required(),
    },
-
-
-    
   ],
-
- 
 })
