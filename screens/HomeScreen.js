@@ -44,10 +44,10 @@ const HomeScreen = () => {
     then((data) => {
       setFeaturedCategories(data);
     })
-    
   }
   , []);
 
+ 
 
   return (
     <SafeAreaView className="bg-white pt-5">
@@ -93,22 +93,18 @@ const HomeScreen = () => {
         {/* Components */}
         {/* Features Rows*/}
         <Categories />
-        {featuredCategories?.map( category => {
+
+        {featuredCategories?.map(category => (
           <FeatureRow
-          key = { category._id}
-          id = { category._id}
-          title={ category.name}
-          description={ category.short_description}
-        />
-        })}
-        
-        
+            key={category._id}
+            id={category._id}
+            title={category.name}
+            description={category.short_description}
+          />
+        ))}
+               
         {/* Tasty Discounts */}
-        <FeatureRow
-          id = "4da06f29-44db-441f-bc82-f051404309e5"
-          title="Feature"
-          description="Everyone's been enjoying these joicy discounts!"
-        />
+      
 
         {/* Offer near you */}
         {/* <FeatureRow
@@ -119,8 +115,6 @@ const HomeScreen = () => {
 
 
       </ScrollView>
-
-
     </SafeAreaView>
   )
 }
