@@ -17,10 +17,9 @@ const RestaurantCard = ({
     long,
     lat
 }) => {
-
-
-    const navigation = useNavigation();
-
+    console.log(short_description)
+    const navigation = useNavigation();   
+    
     return (
         <TouchableOpacity
             onPress={() => {

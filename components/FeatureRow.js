@@ -27,6 +27,8 @@ const FeatureRow = ({ id, title, description }) => {
         .then(data =>{
             setRestaurants(data?.restaurants);
         })
+
+        
     },[])
 
     return (
@@ -46,8 +48,7 @@ const FeatureRow = ({ id, title, description }) => {
             >
                 {/* RestaurantCards */}
                 {restaurants?.map(restaurant => (
-                    <>
-                    {/* {console.log(restaurant._id)} */}
+                    <>                  
                     <RestaurantCard
                         key={restaurant._id}
                         id={restaurant._id}
@@ -55,7 +56,7 @@ const FeatureRow = ({ id, title, description }) => {
                         title={restaurant.name}
                         rating={restaurant.rating}
                         genre={restaurant.type?.name}
-                        address={restaurant.adress}
+                        address={restaurant.address}
                         short_description={restaurant.short_description}
                         dishes={restaurant.dishes}
                         long={restaurant.long}
