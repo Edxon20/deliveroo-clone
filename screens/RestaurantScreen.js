@@ -30,7 +30,8 @@ const RestaurantScreen = () => {
     }, [])
     
   return (
-    <ScrollView>      
+    <ScrollView>     
+    {console.log("imgUrl: ", imgUrl)} 
     <View className="relative">
         <Image 
             source= {{
@@ -81,6 +82,7 @@ const RestaurantScreen = () => {
             {/* DishRows */}
             {
                 dishes.map(dish=>(
+                    <>
                     <DishRow 
                         key={dish._id}
                         id={dish._id}
@@ -88,7 +90,8 @@ const RestaurantScreen = () => {
                         description={dish.short_description}
                         price={dish.price}
                         image={dish.image} 
-                    />
+                    />                   
+                    </>
                 ))             
             }
             
