@@ -23,7 +23,6 @@ const HomeScreen = () => {
   const [featuredCategories, setFeaturedCategories] = useState([])
 
   useLayoutEffect(() => {
-
     navigation.setOptions({
       headerShown: false,
     })
