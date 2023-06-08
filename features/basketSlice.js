@@ -1,15 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  items: [],
+  items: [1],
 }
 
-export const counterSlice = createSlice({
+export const basketSlice = createSlice({
   name: 'basket',
   initialState,
   reducers: {
-    addToBasket: (state) => {
-      state.value += 1
+    addToBasket: (state,action) => {
+      state.items = [...state.items, action.payload]
     },
     removeFromBasket: (state,action) => {
       state.value -= 1
@@ -18,5 +18,8 @@ export const counterSlice = createSlice({
   },
 })
 
-export const { addToBasket, removeFromBasket } = basketSlice.actions
-export default basketSlice.reducer
+export const { addToBasket, removeFromBasket } = basketSlice.actions;
+
+export const selectBasketItems = (state) => state.basket.items;
+
+export default basketSlice.reducer;
