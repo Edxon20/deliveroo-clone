@@ -1,8 +1,8 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { useDispatch, useSelector } from 'react-redux';
-import {selectRestaurant} from '../features/restaurantSlice'
+import { selectRestaurant } from '../features/restaurantSlice'
 import { selectBasketItems } from '../features/basketSlice';
 import { useMemo } from 'react';
 import { useState } from 'react';
@@ -13,21 +13,21 @@ import { MinusCircleIcon } from 'react-native-heroicons/solid';
 
 const BasketScreen = () => {
 
-    const navigation = useNavigation();
-    const restaurant = useSelector(selectRestaurant);
-    const items = useSelector(selectBasketItems);
-    const [groupedItemsInBasket,setGroupedItemsInBasket] = useState([]);
-    const dispatch = useDispatch();
+  const navigation = useNavigation();
+  const restaurant = useSelector(selectRestaurant);
+  const items = useSelector(selectBasketItems);
+  const [groupedItemsInBasket, setGroupedItemsInBasket] = useState([]);
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-      const groupedItems = items.reduce((results,item) => {
-        (results[items.id] = results[items.id] || []).push(item);
-        return results;
-      },{});
-      setGroupedItemsInBasket(groupedItems)
-    },[items])
-    
-    
+  useEffect(() => {
+    const groupedItems = items.reduce((results, item) => {
+      (results[items.id] = results[items.id] || []).push(item);
+      return results;
+    }, {});
+    setGroupedItemsInBasket(groupedItems)
+  }, [items])
+
+
   return (
     <SafeAreaView className="flex-1 bg-white">
       <View className='flex-1 bg-gray-100'>
@@ -42,11 +42,21 @@ const BasketScreen = () => {
           onPress={navigation.goBack}
           className="rounded-full bg-gray-100 absolute top-3 right-5"
         >
-        <MinusCircleIcon  
-          color="#00CCBB" height={50} width={50}
-        />
+          <MinusCircleIcon
+            color="#00CCBB" height={50} width={50}
+          />
         </TouchableOpacity>
-
+        
+        <View className="flex-row items-center space-x-4 px-4 bg-white my-5 py-2">
+          <Image
+            source={{ uri: "http://links.papareact.com/wru" }}
+            className="h-7 w-7 bg-gray-300 p-4 rounded-full"
+          />
+          <Text className="flex-1">Deliver in 50-75 min</Text>
+          <TouchableOpacity>
+            <Text className="text-[#00CCBB]">Change</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </SafeAreaView>
   )
