@@ -7,6 +7,7 @@ import { selectBasketItems } from '../features/basketSlice';
 import { useMemo } from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 const BasketScreen = () => {
@@ -28,9 +29,13 @@ const BasketScreen = () => {
     
     
   return (
-    <View>
-      <Text>BasketScreen</Text>
-    </View>
+    <SafeAreaView className="bg-slate-800 ">
+      <View>
+        <View>
+          
+        </View>
+      </View>
+    </SafeAreaView>
   )
 }
 

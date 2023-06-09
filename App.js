@@ -22,7 +22,7 @@ export default function App() {
           <Stack.Screen 
             name="Basket" 
             component={BasketScreen}
-            option={{ presentation: 'modal', headerShown:false  }}
+            options={{ presentation: 'modal', headerShown:false  }}
           />
         </Stack.Navigator>
       </Provider>
