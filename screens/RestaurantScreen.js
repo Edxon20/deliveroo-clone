@@ -28,6 +28,7 @@ const RestaurantScreen = () => {
     }} = useRoute();
 
     useEffect(() => {
+        console.log("HI from restaurantScreen")
         dispatch(
             setRestaurant({
             id,
@@ -53,7 +54,6 @@ const RestaurantScreen = () => {
     <>
     <BasketIcon /> 
         <ScrollView>     
-        {console.log("imgUrl: ", imgUrl)} 
         <View className="relative">
             <Image 
                 source= {{

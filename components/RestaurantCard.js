@@ -17,7 +17,7 @@ const RestaurantCard = ({
     long,
     lat
 }) => {
-    console.log(short_description)
+   
     const navigation = useNavigation();   
     
     return (
