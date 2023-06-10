@@ -41,7 +41,7 @@ const BasketScreen = () => {
 
   return (
     <SafeAreaView
-      className={`${Platform.OS === "ios" ? "py-5" : "pt-12"} bg-white flex-1`}
+      className={`bg-white flex-1`}
     >
       <View className="flex-1 bg-gray-100">
         <View className="p-5 border-b border-[#00ccbb] bg-white shadow-xs">
@@ -75,6 +75,8 @@ const BasketScreen = () => {
 
         <ScrollView className="divide-y divide-gray-200">
           {Object.entries(groupedItemsInBasket).map(([key, dishItems]) => (
+            <>
+                       
             <View
               key={key}
               className="flex-row items-center space-x-3 bg-white py-2 px-5"
@@ -86,7 +88,7 @@ const BasketScreen = () => {
               />
               <Text className="flex-1">{dishItems[0]?.name}</Text>
               <Text className="text-gray-600">
-                <Text>Price</Text>               
+                <Text>{dishItems[0]?.price}</Text>               
               </Text>
 
               <TouchableOpacity>
@@ -98,6 +100,7 @@ const BasketScreen = () => {
                 </Text>
               </TouchableOpacity>
             </View>
+            </>
           ))}
         </ScrollView>
 
@@ -105,21 +108,21 @@ const BasketScreen = () => {
           <View className="flex-row justify-between">
             <Text className="text-gray-400">Subtotal</Text>
             <Text className="text-gray-400">
-              <Text>Price</Text>
+              <Text>{basketTotal}</Text>
             </Text>
           </View>
 
           <View className="flex-row justify-between">
             <Text className="text-gray-400">Delivery Fee</Text>
             <Text className="text-gray-400">
-              <Text>Price</Text>
+              <Text>2.99</Text>
             </Text>
           </View>
 
           <View className="flex-row justify-between">
             <Text>Order total</Text>
             <Text className="font-extrabold">
-              <Text>Price</Text>
+              <Text>{basketTotal + 2.99}</Text>
             </Text>
           </View>
 
