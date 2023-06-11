@@ -56,8 +56,22 @@ const DeliveryScreen = () => {
                 className="flex-1 -mt-10 z-0"
                 mapType="mutedStandard"
             >
-
             </MapView>
+
+            <SafeAreaView className="bg-white flex-row items-center space-x-5 h-28">
+                <Image 
+                    source={{
+                        uri: "http://links.papareact.com/wru",
+                    }}
+                    className="h-12 w-12 bg-gray-300 p-4 rounded-full ml-5"
+                />
+                <View>
+                    <Text className="text-lg">
+                        Edixon Toro
+                    </Text>
+                    <Text>Your Rider</Text>
+                </View>
+            </SafeAreaView>
         </View>
     )
 }
