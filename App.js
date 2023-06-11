@@ -6,6 +6,7 @@ import HomeScreen from "./screens/HomeScreen"
 import RestaurantScreen from './screens/RestaurantScreen';
 import BasketScreen from './screens/BasketScreen';
 import PreparingOrder from './screens/PreparingOrderScreen';
+import DeliveryScreen from './screens/DeliveryScreen';
 import { Provider } from 'react-redux';
 import { store } from './store';
 
@@ -26,7 +27,10 @@ export default function App() {
             options={{ presentation: 'modal', headerShown:false  }}
           />
           <Stack.Screen name="PreparingOrder" component={PreparingOrder} options={{ presentation: 'modal', headerShown:false  }}/>
+          <Stack.Screen name="Delivery" component={DeliveryScreen} options={{ presentation: 'modal', headerShown:false  }}/>
+
         </Stack.Navigator>
+        
       </Provider>
     </NavigationContainer>
   );
