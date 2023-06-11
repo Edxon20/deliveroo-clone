@@ -1,10 +1,11 @@
-import { View, Text, SafeAreaView, TouchableOpacity } from 'react-native'
+import { View, Text, SafeAreaView, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { useSelector } from 'react-redux';
 import { selectRestaurant } from '../features/restaurantSlice';
 import { XMarkIcon } from 'react-native-heroicons/outline';
-
+import * as ProgressEvent from "react-native-progress";
+import MapView from 'react-native-maps';
 
 
 const DeliveryScreen = () => {
@@ -21,7 +22,42 @@ const DeliveryScreen = () => {
                     </TouchableOpacity>
                     <Text className="font-light text-white text-lg">Order Help</Text>
                 </View>
+
+                <View className="bg-white mx-5 my-2 rounded-md z-50 p-6 shadow-md">
+                    <View className="flex-row justify-between">
+                        <View>
+                            <Text className="text-lg text-gray-400">Estimated Arrival</Text>
+                            <Text className="text-4xl font-bold">45-55 Minutes</Text>
+                        </View>
+                        <Image
+                            source={{
+                                uri: "https://links.papareact.com/fls"
+                            }}
+                            className="h-20 w-20"
+                        />
+                    </View>
+                    <ProgressEvent.Bar size={30} color="#00CCBB" indeterminate={true} />
+
+                    <Text className="mt-3 text-gray-500">
+                            Your order at {restaurant.title} is being prepared
+                    </Text>                    
+                </View>
             </SafeAreaView>
+
+            <MapView
+                initialRegion={{
+
+                    latitude:41.85003,
+                    longitude: -87.65005,
+                    latitudeDelta: 0.005,
+                    longitudeDelta: 0.005,
+                }}
+
+                className="flex-1 -mt-10 z-0"
+                mapType="mutedStandard"
+            >
+
+            </MapView>
         </View>
     )
 }
